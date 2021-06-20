@@ -74,18 +74,18 @@ $(function(){
 	// done()
 
 	// }
-	alert('page is loaded then anims start')
+// 	alert('page is loaded then anims start')
 	function header_anim(){
 		$('header img').animate(
 			{ top: "0px" },
-			400, function() {
+			1400, function() {
 		});
 	}
 
 	$('.wrapperhide').animate({
 		opacity: 0,
 	},
-     400, function() {
+     4000, function() {
 			$('.wrapperhide').css("display","none");
 			header_anim();
   });
