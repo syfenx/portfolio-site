@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  /* animation-play-state: paused; */
+}
+
+body {
+  margin: 0;
+  background: #181818;
+  color: pink;
+  /* google fonts */
+  font-family: "Monda", sans-serif;
+  /* this was too slow */
+  /* animation-name: body_fadein_animation; */
+  /* animation-duration: 0.5s; */
+  /* only play animation once on page load */
+  animation-iteration-count: 1;
+}
+
+.wrapper{
+  max-width: 1251px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.wrapperhide{
+  background-color:rgb(0, 0, 0);
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  /* on top of everything else */
+  z-index:1000;
+  /* start hidden */
+  /* display: none; */
+  /* vertical */
+  align-items: center;
+  /* horizonal */
+  justify-content: center;
+  /* animation: fadeIn 2s; */
+}
+
+@keyframes body_fadein_animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h1{
+  font-size: 32px;
+  color: rgb(221, 192, 255);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+  /* text-shadow: 0px 0px 5px rgba(221, 192, 255, 0.514); */
+  padding-left: 20px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  /* background: linear-gradient(270deg, rgba(24,24,24,1) 0%, rgb(221, 192, 255) 100%); */
+  /* box-shadow: 0px 10px 10px -10px rgb(221, 192, 255); */
+  /* border-bottom: 2px solid rgb(221, 192, 255); */
+  /* box-shadow: 0px 10px 10px -10px rgb(221, 192, 255); */
+}
+
+h2,h3{
+  margin-left: 20px;
+}
+
+header {
+  margin: 0;
+  text-align: center;
+  display: flex;
+  /* vertical */
+  align-items: center;
+  /* horizonal */
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(24,24,24,1) 2%, rgba(24,24,24,0) 10%),
+      url(images/background.jpg);
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* hidden so it is revealed from the bottom/inside header or else it would be
+  visible outside the div */
+  overflow: hidden;
+  background-position-y: 80%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 1px solid rgba(51, 51, 51, 0.5);
+  border-right: 1px solid rgba(51, 51, 51, 0.5);
+  /* super secret css debug method */
+  /* background: red; */
+}
+
+@keyframes header_animation {
+  0% {
+    top: 340px;
+    opacity: 0;
+  }
+  25% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+header p {
+  font-size: 68px;
+}
+
+header img {
+  width: 350px;
+  top:340px;
+  /* animation-name: header_animation; */
+  /* animation-duration: 1.5s; */
+  position: relative;
+  /* animation-delay: 0.5s; */
+  /* only play animation once on page load */
+  /* animation-iteration-count: 1; */
+}
+
+nav {
+  position: relative;
+  top: -78px;
+  margin-right: 10px;
+  margin-bottom: -28px;
+}
+
+nav ul {
+  text-align: right;
+}
+
+/* most styling is done on "a" so the entire box is able to be clicked */
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* style nav links inside list element */
+nav li a {
+  font-size: 16px;
+  /* background: #181818; */
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  /* remove underline */
+  text-decoration: none;
+  color: pink;
+  border: 0px solid;
+  /* subtle 3d button effect */
+  border-left-color: #414141;
+  border-top-color: #414141;
+  border-right-color: #202020;
+  border-bottom-color: #202020;
+  /* hover fade */
+  transition: 0.2s;
+  /* border-top: 2px solid rgba(255, 192, 203, 0.74); */
+  border-bottom: 2px solid rgba(255, 192, 203, 0.74);
+  /* background: linear-gradient(180deg, rgba(24,24,24,1) 0%, rgba(255, 192, 203, 0.459) 100%); */
+}
+
+nav li a:hover{
+  border-bottom: 2px solid rgb(221, 192, 255);
+  /* https://codersblock.com/blog/creating-glow-effects-with-css/ */
+  box-shadow: 0px 10px 10px -10px rgb(221, 192, 255);
+  color: rgba(221, 192, 255);
+  text-shadow: rgb(221, 192, 255) 0px 0 8px;
+}
+
+article {
+  background: #181818;
+  padding: 0px 20px 20px 20px;
+  margin-bottom: 0px;
+}
+
+/* I don't need the numbers for ordered lists */
+article ol{
+  list-style: none;
+  text-align: center;
+}
+
+article p {
+  padding: 10px;
+  margin: 0;
+  line-height: 32px;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+article img{
+  border-radius: 10px;
+  /* hover fade */
+  transition: 0.2s;
+  border-bottom: 2px solid rgba(255, 192, 203, 0.74);
+}
+
+article img:hover{
+  border-bottom: 2px solid rgb(221, 192, 255);
+  box-shadow: 0px 10px 10px -10px rgb(221, 192, 255);
+}
+
+article a{
+  color: pink;
+}
+
+article .created, .contrib{
+  font-size: 24px;
+}
+
+article .created{
+  color: #56ffda;
+}
+
+article .contrib{
+  color: #cf56ff;
+}
+
+article ol li{
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+}
+
+.artwork li{
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.artwork img{
+  max-width:100%;
+  max-height:100%;
+  border-radius: 10px;
+  width: 75px;
+  /* hover fade */
+  transition: 0.2s;
+  border-bottom: 2px solid rgba(255, 192, 203, 0.74);
+}
+
+.artwork img:hover{
+  border-bottom: 2px solid rgb(221, 192, 255);
+  box-shadow: 0px 10px 10px -10px rgb(221, 192, 255);
+}
+
+.artwork{
+  text-align: center;
+}
+
+.artwork-image img{
+  border-radius: 10px;
+  border:0;
+}
+
+.artwork-image img:hover{
+  border:0;
+  box-shadow: none;
+}
+
+.imagebox-desc{
+  background: rgba(0, 0, 0, 0.514);
+  text-align: center;
+  color: #fff;
+  padding:10px;
+  border-radius: 10px;
+}
+
+main{
+  /* margin-bottom: 20px; */
+  position: relative;
+  /* old */
+  /* top: -60px; */
+  /* top: -110px; */
+  border-left: 1px solid rgba(51, 51, 51, 0.5);
+  border-right: 1px solid rgba(51, 51, 51, 0.5);
+}
+
+main .map{
+  text-align: center;
+  width: 100%;
+}
+
+main .map iframe{
+  border-radius: 10px;
+}
+
+footer {
+  background: #181818;
+  background: linear-gradient(
+    90deg,
+   #111 0%,
+    #181818 51%,
+    #111 100%
+  );
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(59, 59, 59, 0.486);
+  padding: 40px;
+  border-left: 1px solid rgba(51, 51, 51, 0.5);
+  border-right: 1px solid rgba(51, 51, 51, 0.5);
+}
+
+ footer .top{
+   float: right;
+   text-align: right;
+   position: relative;
+   top: -26px;
+ }
+
+ footer .top a{
+   color: pink;
+   text-decoration: none;
+ }
+ footer p{
+   margin:0;
+ }
+
+ hr{
+   border-style: none;
+   border-top: 1px solid rgba(51, 51, 51, 0.5);
+ }
+
+ /* for the artwork display */
+ /* https://stackoverflow.com/questions/3250790/making-a-div-that-covers-the-entire-page */
+ .overlay{
+  background-color:rgba(0, 0, 0, 0.801);
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  /* on top of everything else */
+  z-index:1000;
+  /* start hidden */
+  display: none;
+  /* vertical */
+  align-items: center;
+  /* horizonal */
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+
+/* for overlay fadein 
+https://blog.hubspot.com/website/css-fade-in */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
