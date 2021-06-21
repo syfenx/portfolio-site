@@ -58,7 +58,7 @@ $(function(){
 
 	var tl = new TimelineMax();
 	// body fade in animation 
-	tl.fromTo(".wrapperhide", 3.5, {opacity:1}, {opacity:0, display:'none'});
+	tl.fromTo(".wrapperhide", 5.5, {opacity:1}, {opacity:0, display:'none'});
 	// logo slide in from bottom animation
 	tl.fromTo("header img", 0.5, {y:380}, {y:0});
 	// nav fade in animation
