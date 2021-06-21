@@ -1,4 +1,7 @@
+// everything inside this runs after page load
 $(function(){
+
+	// art gallery code
 	$(".artwork ol li img").click(function(e) {
 			// grab url src and desc from the image that was clicked
 			let desc = $(this).attr("alt");
@@ -23,76 +26,42 @@ $(function(){
 			$(".overlay").css("display","none");
 	});
 
+	// animate scrolling to each section
 	function anim_scroll(elem, speed){
 		$("html").animate(
       {scrollTop: $(elem).offset().top}, speed);
 	}
-	// animate scrolling
+
+	// scroll speed
 	let speed = 400;
 
 	// top button
-	$(".top").click(function(e) {
+	$(".top").click(function() {
 		anim_scroll("header", speed)
 	});
+
 	// projects button
-	$(".projects").click(function(e) {
+	$(".projects").click(function() {
 		anim_scroll("#projects", speed)
 	});
+
 	// about button
-	$(".about").click(function(e) {
+	$(".about").click(function() {
 		anim_scroll("#about", speed)
 	});
+
 	// contact button
-	$(".contact").click(function(e) {
+	$(".contact").click(function() {
 		anim_scroll("#contact", speed)
 	});
 
-	// wait until page is fully loaded to play animation
-	// body fade in
-	$("body").css("animation-play-state", "running");
 
-	// header image/logo slide
-	$("header img").css("animation-play-state", "running");
-
-	// $("header").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-	// 	console.log("anim ended");
-	// });
-	// $('#blue').animate({opacity: '1'}, 3500).delay(500).queue(function() {
-  //   $('#blue').fadeOut('fast');
-  //   $('#orange').animate({opacity: '1'}, 3500).delay(1000).queue(function() {
-  //       $(this).fadeOut('fast');
-  //       $('#green').animate({opacity: '1'}, 3500);
-  //   });
-	// });
-	function done(){
-		console.log("done");
-	}
-
-	// $(".wrapperhide")
-	// .animate({opacity: "0"}, 2000), function(){
-
-	// done()
-
-	// }
-// 	alert('page is loaded then anims start')
-	function header_anim(){
-		$('header img').animate(
-			{ top: "0px" },
-			1400, function() {
-		});
-	}
-
-	$('.wrapperhide').animate({
-		opacity: 0,
-	},
-     4000, function() {
-			$('.wrapperhide').css("display","none");
-			header_anim();
-  });
-	// .animate({fontSize: "46px"})
-	// .animate({borderWidth: 30})
-
-
+	var tl = new TimelineMax();
+	// body fade in animation 
+	tl.fromTo(".wrapperhide", 0.5, {opacity:1}, {opacity:0, display:'none'});
+	// logo slide in from bottom animation
+	tl.fromTo("header img", 0.5, {y:380}, {y:0});
+	// nav fade in animation
+	let nav = "nav ul li a";
+	tl.staggerFromTo(nav, 1, {opacity:0, y:100}, {opacity:1, y:0}, 0.2);
 	});
-
-

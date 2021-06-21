@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin:0;
   padding:0;
-  /* animation-play-state: paused; */
 }
 
 body {
@@ -11,11 +10,6 @@ body {
   color: pink;
   /* google fonts */
   font-family: "Monda", sans-serif;
-  /* this was too slow */
-  /* animation-name: body_fadein_animation; */
-  /* animation-duration: 0.5s; */
-  /* only play animation once on page load */
-  animation-iteration-count: 1;
 }
 
 .wrapper{
@@ -32,41 +26,24 @@ body {
   height:100%;
   top:0px;
   left:0px;
-  /* on top of everything else */
+  /* on top of all elements */
   z-index:1000;
-  /* start hidden */
-  /* display: none; */
   /* vertical */
   align-items: center;
   /* horizonal */
   justify-content: center;
-  /* animation: fadeIn 2s; */
-}
-
-@keyframes body_fadein_animation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 h1{
   font-size: 32px;
   color: rgb(221, 192, 255);
   border-bottom: 1px solid rgba(51, 51, 51, 0.5);
-  /* text-shadow: 0px 0px 5px rgba(221, 192, 255, 0.514); */
   padding-left: 20px;
   padding-bottom: 10px;
   border-radius: 10px;
-  /* background: linear-gradient(270deg, rgba(24,24,24,1) 0%, rgb(221, 192, 255) 100%); */
-  /* box-shadow: 0px 10px 10px -10px rgb(221, 192, 255); */
-  /* border-bottom: 2px solid rgb(221, 192, 255); */
-  /* box-shadow: 0px 10px 10px -10px rgb(221, 192, 255); */
 }
 
-h2,h3{
+h2, h3{
   margin-left: 20px;
 }
 
@@ -85,10 +62,11 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* hidden so it is revealed from the bottom/inside header or else it would be
+  /* hidden so it is revealed from the 
+  bottom/inside header or else it would be
   visible outside the div */
   overflow: hidden;
-  background-position-y: 80%;
+  background-position-y: 93%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-left: 1px solid rgba(51, 51, 51, 0.5);
@@ -97,35 +75,20 @@ header {
   /* background: red; */
 }
 
-@keyframes header_animation {
-  0% {
-    top: 340px;
-    opacity: 0;
-  }
-  25% {
-    top: 0px;
-    opacity: 1;
-  }
-}
-
 header p {
   font-size: 68px;
 }
 
 header img {
   width: 350px;
-  top:340px;
-  /* animation-name: header_animation; */
-  /* animation-duration: 1.5s; */
   position: relative;
-  /* animation-delay: 0.5s; */
-  /* only play animation once on page load */
-  /* animation-iteration-count: 1; */
 }
 
 nav {
-  position: relative;
-  top: -78px;
+  position: absolute;
+  right: 0;
+  /* position nav in black area of mountains */
+  top: 428px;
   margin-right: 10px;
   margin-bottom: -28px;
 }
@@ -143,7 +106,6 @@ nav ul li {
 /* style nav links inside list element */
 nav li a {
   font-size: 16px;
-  /* background: #181818; */
   padding: 10px;
   width: 100%;
   border-radius: 10px;
@@ -151,16 +113,10 @@ nav li a {
   text-decoration: none;
   color: pink;
   border: 0px solid;
-  /* subtle 3d button effect */
-  border-left-color: #414141;
-  border-top-color: #414141;
-  border-right-color: #202020;
-  border-bottom-color: #202020;
   /* hover fade */
   transition: 0.2s;
-  /* border-top: 2px solid rgba(255, 192, 203, 0.74); */
   border-bottom: 2px solid rgba(255, 192, 203, 0.74);
-  /* background: linear-gradient(180deg, rgba(24,24,24,1) 0%, rgba(255, 192, 203, 0.459) 100%); */
+  position: relative;
 }
 
 nav li a:hover{
@@ -203,8 +159,15 @@ article img:hover{
   box-shadow: 0px 10px 10px -10px rgb(221, 192, 255);
 }
 
+/* style links inside article element (email/github)*/
 article a{
-  color: pink;
+  color: rgb(221, 192, 255);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+article a:hover{
+  color: #56ffda;
 }
 
 article .created, .contrib{
@@ -245,6 +208,7 @@ article ol li{
 .artwork img:hover{
   border-bottom: 2px solid rgb(221, 192, 255);
   box-shadow: 0px 10px 10px -10px rgb(221, 192, 255);
+  cursor: pointer;
 }
 
 .artwork{
@@ -252,7 +216,8 @@ article ol li{
 }
 
 .artwork-image img{
-  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   border:0;
 }
 
@@ -262,19 +227,18 @@ article ol li{
 }
 
 .imagebox-desc{
-  background: rgba(0, 0, 0, 0.514);
+  background: rgb(0, 0, 0);
   text-align: center;
   color: #fff;
   padding:10px;
-  border-radius: 10px;
+  position: relative;
+  top: -10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 main{
-  /* margin-bottom: 20px; */
   position: relative;
-  /* old */
-  /* top: -60px; */
-  /* top: -110px; */
   border-left: 1px solid rgba(51, 51, 51, 0.5);
   border-right: 1px solid rgba(51, 51, 51, 0.5);
 }
@@ -333,7 +297,7 @@ footer {
   height:100%;
   top:0px;
   left:0px;
-  /* on top of everything else */
+  /* on top of all elements */
   z-index:1000;
   /* start hidden */
   display: none;
@@ -341,12 +305,4 @@ footer {
   align-items: center;
   /* horizonal */
   justify-content: center;
-  animation: fadeIn 0.3s;
-}
-
-/* for overlay fadein 
-https://blog.hubspot.com/website/css-fade-in */
-@keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
 }
