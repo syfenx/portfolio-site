@@ -73,7 +73,7 @@ $(function(){
 	// body fade in animation 
 	/* display: none so the overlay div isn't blocking
 	the rest of the content after opacity is 0 */
-	tl.fromTo(".wrapperhide", 0.3, {opacity:1}, {opacity:0, display:'none'});
+	tl.fromTo(".wrapperhide", 0.9, {opacity:1}, {opacity:0, display:'none'});
 
 	// logo slide in from bottom animation
 	tl.fromTo("header img", 0.5, {y:380}, {y:0, ease:"expo"});
