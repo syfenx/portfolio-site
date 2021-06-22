@@ -57,7 +57,7 @@ header {
   justify-content: center;
   width: 100%;
   background: linear-gradient(0deg, rgba(24,24,24,1) 2%, rgba(24,24,24,0) 10%),
-      url(images/background.jpg);
+      url(images/background1.jpg);
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,8 +67,6 @@ header {
   visible outside the div */
   overflow: hidden;
   background-position-y: 93%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   border-left: 1px solid rgba(51, 51, 51, 0.5);
   border-right: 1px solid rgba(51, 51, 51, 0.5);
   /* super secret css debug method */
@@ -90,7 +88,6 @@ nav {
   /* position nav in black area of mountains */
   top: 428px;
   margin-right: 10px;
-  margin-bottom: -28px;
 }
 
 nav ul {
@@ -145,6 +142,13 @@ article p {
   line-height: 32px;
   margin-bottom: 0;
   margin-left: 20px;
+  transition: 0.2s;
+}
+
+.glow{
+  /* https://codersblock.com/blog/creating-glow-effects-with-css/ */
+  color: rgba(221, 192, 255);
+  text-shadow: rgb(221, 192, 255) 0px 0 8px;
 }
 
 article img{
@@ -152,6 +156,8 @@ article img{
   /* hover fade */
   transition: 0.2s;
   border-bottom: 2px solid rgba(255, 192, 203, 0.74);
+  /* fixes mobile */
+  width: 100%;
 }
 
 article img:hover{
@@ -163,11 +169,12 @@ article img:hover{
 article a{
   color: rgb(221, 192, 255);
   text-decoration: none;
-  transition: 0.2s;
+  transition: 0.8s;
 }
 
 article a:hover{
   color: #56ffda;
+  text-shadow: #56ffda 0px 0 8px;
 }
 
 article .created, .contrib{
@@ -186,6 +193,7 @@ article ol li{
   display: inline-block;
   padding: 10px;
   text-align: center;
+  transition: 0.5s;
 }
 
 .artwork li{
@@ -250,6 +258,8 @@ main .map{
 
 main .map iframe{
   border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
 }
 
 footer {
@@ -268,29 +278,36 @@ footer {
   border-right: 1px solid rgba(51, 51, 51, 0.5);
 }
 
- footer .top{
-   float: right;
-   text-align: right;
-   position: relative;
-   top: -26px;
- }
+footer .top{
+  float: right;
+  text-align: right;
+  position: relative;
+  top: -26px;
+}
 
- footer .top a{
-   color: pink;
-   text-decoration: none;
- }
- footer p{
-   margin:0;
- }
+footer .top a{
+  color: pink;
+  text-decoration: none;
+  transition: 0.8s;
+}
 
- hr{
-   border-style: none;
-   border-top: 1px solid rgba(51, 51, 51, 0.5);
- }
+footer .top a:hover{
+  color: #56ffda;
+  text-shadow: #56ffda 0px 0 8px;
+}
+
+footer p{
+  margin:0;
+}
+
+hr{
+  border-style: none;
+  border-top: 1px solid rgba(51, 51, 51, 0.5);
+}
 
  /* for the artwork display */
  /* https://stackoverflow.com/questions/3250790/making-a-div-that-covers-the-entire-page */
- .overlay{
+.overlay{
   background-color:rgba(0, 0, 0, 0.801);
   position:fixed;
   width:100%;
@@ -305,4 +322,34 @@ footer {
   align-items: center;
   /* horizonal */
   justify-content: center;
+  animation: fadeIn 0.3s;
+}
+
+/* for overlay fadein 
+https://blog.hubspot.com/website/css-fade-in */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+} 
+
+/* https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(53, 53, 53);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43, 43, 43);
 }

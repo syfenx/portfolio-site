@@ -55,13 +55,30 @@ $(function(){
 		anim_scroll("#contact", speed)
 	});
 
+	// make p text glow when li is hovered (projects area)
+	// https://stackoverflow.com/questions/37959686/on-child-hover-change-the-css-of-parent/37961187
+	$("article li").mouseover(function()
+	{ 
+			$(this).find("p").addClass("glow");
+	});
 
-	var tl = new TimelineMax();
+	$("article li").mouseout(function()
+	{ 
+			$(this).find("p").removeClass("glow")
+	});
+
+	// gsap
+  let tl = new TimelineMax();
+
 	// body fade in animation 
-	tl.fromTo(".wrapperhide", 5.5, {opacity:1}, {opacity:0, display:'none'});
+	/* display: none so the overlay div isn't blocking
+	the rest of the content after opacity is 0 */
+	tl.fromTo(".wrapperhide", 0.3, {opacity:1}, {opacity:0, display:'none'});
+
 	// logo slide in from bottom animation
-	tl.fromTo("header img", 0.5, {y:380}, {y:0});
+	tl.fromTo("header img", 0.5, {y:380}, {y:0, ease:"expo"});
+
 	// nav fade in animation
 	let nav = "nav ul li a";
-	tl.staggerFromTo(nav, 1, {opacity:0, y:100}, {opacity:1, y:0}, 0.2);
+	tl.staggerFromTo(nav, 1, {opacity:0}, {opacity:1, ease: "expo"}, 0.2);
 	});
